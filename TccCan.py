@@ -1,8 +1,8 @@
 import can
 import threading
 from typing import Union
-from TccTypes import *
-from MessageConverter import MessageConverter
+from .TccTypes import *
+from .MessageConverter import MessageConverter
 from logging import getLogger, DEBUG, INFO
 
 class TccCan:
