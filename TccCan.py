@@ -1,13 +1,11 @@
 import can
 import threading
 from typing import Union
-from tcc_types import *
-from messages import MessageConverter
-from time import sleep
-from logger import setup_logger
-from logging import DEBUG
+from TccTypes import *
+from MessageConverter import MessageConverter
+from logging import getLogger, DEBUG, INFO
 
-class Tcc:
+class TccCan:
     """
     Manages communication with a Tactical Control Component (TCC) over a CAN bus.
 
@@ -26,7 +24,8 @@ class Tcc:
         self.stop_thread_flag = threading.Event()  # Flag to signal thread termination
         self.can_thread = None  # Thread for reading CAN messages
         self.status_mutex = threading.Lock()  # Mutex for thread-safe data access
-        self.logger = setup_logger("tcc_can")  # Logger for TCC operations
+        self.logger = getLogger("TccCan")  # Logger for TCC operations
+        self.logger.setLevel(INFO)
 
     def open(self, interface):
         """
