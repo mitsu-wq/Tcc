@@ -231,7 +231,7 @@ class TccCan:
         with self.status_mutex:
             try:
                 value = PARAMETERS_DATA[param]
-                self.logger.debug(f"Retrieved {param} with value: {value}")
+                self.logger.info(f"Retrieved {param} with value: {value}")
                 return value
             except KeyError:
                 self.logger.warning(f"Parameter {param} not found in PARAMETERS_DATA")
@@ -256,7 +256,7 @@ class TccCan:
         with self.status_mutex:
             try:
                 value = TIMEOUTS_DATA[timeout]
-                self.logger.debug(f"Retrieved timeout {timeout} with value: {value} ms")
+                self.logger.info(f"Retrieved timeout {timeout} with value: {value} ms")
                 return value
             except KeyError:
                 self.logger.warning(f"Timeout {timeout} not found in TIMEOUTS_DATA")

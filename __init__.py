@@ -7,6 +7,7 @@ import os
 import logging
 from .TccCan import TccCan
 from .TccTypes import TccState, TccCommand, TccParameter, TccTimeout
+from .MessageConverter import MessageConverter
 from json import load
 
 try:
@@ -17,4 +18,4 @@ except FileNotFoundError:
     logging.basicConfig(level=logging.WARNING)
     logging.getLogger(__name__).warning("logging.json not found, using default logging")
 
-__all__ = ["TccCan", "TccState", "TccCommand", "TccParameter", "TccTimeout"]
+__all__ = ["TccCan", "TccState", "TccCommand", "TccParameter", "TccTimeout", "MessageConverter"]
